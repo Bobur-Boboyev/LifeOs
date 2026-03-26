@@ -14,3 +14,4 @@ class Goal(Base):
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
 
     user: Mapped["User"] = relationship("User", back_populates="goals")
+    habits: Mapped[list["Habit"]] = relationship("habit", back_populates="goal")
