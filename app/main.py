@@ -4,6 +4,11 @@ from sqlalchemy.orm import Session
 from app.core.config import settings
 from app.api.deps import get_db
 
+from app.db.init_db import init_db
+
+init_db()
+
+
 app = FastAPI(title="LifeOS")
 
 

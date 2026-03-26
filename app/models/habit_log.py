@@ -10,7 +10,7 @@ class HabitLog(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
     habit_id: Mapped[int] = mapped_column(Integer, ForeignKey("habits.id"))
-    date: Mapped = mapped_column(Date, default=date.today)
-    is_done: Mapped = mapped_column(Boolean, default=False)
+    date_: Mapped[date] = mapped_column(Date, default=date.today)
+    is_done: Mapped[bool] = mapped_column(Boolean, default=False)
 
-    habit = relationship("Habit", back_populates="logs")
+    habit: Mapped["Habit"] = relationship("Habit", back_populates="logs")
