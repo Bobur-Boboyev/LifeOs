@@ -1,7 +1,9 @@
 from fastapi import FastAPI
+from app.core.config import settings
 
-app = FastAPI()
+app = FastAPI(title="LifeOS")
+
 
 @app.get("/")
 def root():
-    return {"message": "LifeOS is running"}
+    return {"status": "ok", "db": settings.DB_NAME}
